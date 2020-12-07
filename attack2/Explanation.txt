@@ -1,0 +1,22 @@
+This attack is the target="_blank" Attack.
+
+While this might be best demonstrated with a link to another location,
+I wanted to do a file upload so that a second server isn't necessary.
+So, this website is a hosting site, and allows you to preview your html page.
+So, when you upload your page and go to its location on the server, that page
+can use the [target="_blank" Attack].
+
+in attack/ is the vulnerable node server
+in parry/ is the node server that won't allow opener reference
+
+NOTE: This only worked in google chrome due to my security settings in firefox...
+
+For seeing it in action:
+
+0. Install dependencies and packages with "npm install"
+1. Start Server with "node index.js"
+2. Click "Choose File" and upload the lone html page located at attack1/h4cker-z0n3/hackWithBlank.html to the server
+3. Click on the link that appears to the preview of your html (attack) page
+4. Click the button to attack the window.opener
+5. If it is the vulnerable server, the original tab will change to a fake sign-out page
+6. If you enter credentials and submit, it will send it to a location provided by the hacker page.
