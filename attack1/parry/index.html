@@ -1,0 +1,50 @@
+<html>
+
+<head></head>
+
+<body>
+    <h1>Sweet Hosting Website</h1>
+    <h5>Welcome to our sweet hosting website. Upload your page to see how it looks on our server! Just submit below and click on the generated preview page.</h5>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div id="add_to_me" name ="add_to_me">
+
+    <form name="formy" id="formy" action="/submit-form" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" />
+    <input id="submit-button" class="submit-button" type="submit" />
+    </form>
+    <script>
+    
+
+        $("#formy").submit(function(e) {
+            e.preventDefault();
+            ddata = new FormData();
+            ddata.append( 'file', $('#file')[0].files[0] );
+
+            console.log("ajaxing")
+
+          $.ajax({
+          url:'/submit-form',
+          processData: false,
+          contentType:false,
+          type:'POST',
+          data:ddata,
+          success:function(response){
+              let stringaling = response;
+              alert(stringaling);
+              document.getElementById("add_to_me").innerHTML += "<a href='/uploads/" + stringaling + "' target='_blank' rel=\"noopener noreferrer\">Your preview page!</a>"
+          },error: function (err) {
+              alert("BAD")
+        },
+        complete: function () {
+        }
+      });
+      return false;
+        })
+      </script>
+</div>
+<p>You will be given a link to your new, very safe, benign page :) Don't hurt us</p>
+</body>
+
+</html>
