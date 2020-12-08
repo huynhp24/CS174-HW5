@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en-US">
+<head>
+<title>CS174 Fall 2020</title>
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <meta name="Authors" content="Christopher Pollett" />
+    <style><!--
+    
+.indent {margin-left: 3%}
+.floatRight {float:right;}
+.nobot {line-height: .05in; margin-bottom: .07in}
+.contentColor {background: #FFFFFF; color:#000000}
+.borderColor {background: #99FFCC; color:#000000}
+.borderColor2 {background: #99FF99; color:#000000}
+.grayBackground {background: #EEEEEE;}
+.blackBackground {background:black; color:white;}
+.centerTable {margin-left:20%; margin-right:20%;}
+.italic {font-style: italic}
+.bold {font-weight: bold}
+.underline {text-decoration: underline}
+.tt {font-family: Courier}
+.center {text-align:center}
+.red {color:#FF0000}
+.white {color:#FFFFFF}
+.hideme {display: none}
+
+.whitebox {
+background-color: white;
+border: solid;
+border-color: black;
+border-width: 1px;
+padding: 0.25em;
+}
+
+.beigebox {
+background-color: #EEEEEE;
+border: solid;
+border-color: black;
+border-width: 2px;
+padding: 0.25em;
+}
+
+.h1 {font-size: 16pt; font-weight:bold}
+.h2 {font-size: 14pt; font-weight:bold}
+.h3 {font-size: 12pt; font-weight:bold}
+.h4 {font-size: 10pt; font-weight:bold}
+
+.right {text-align:right}
+.left {text-align:left}
+
+.borderTable, .borderTable th, .borderTable td
+{
+    border: 1px solid black;
+}
+    -->
+    </style>
+</head>
+<body style="margin-left:0cm;
+   margin-right: 0cm; margin-top:0cm; margin-bottom:0cm"
+class="contentColor"  >
+<table style="border:0; width:100%;">
+<tr style="height:11in;">    <td class="borderColor"   style="width:25%;text-align: left; vertical-align:top;">
+    <p>
+    <span class="h3">
+    <a href="http://www.cs.sjsu.edu/faculty/pollett/" >Chris Pollett</a>&gt;
+    <a href="?classpage.php#top">CS174</a></span><br />
+    <span id="start" class="indent">( <a href="http://www.cs.sjsu.edu/faculty/pollett/174.1.20f/?Hw5.php?print">Print View</a> )
+    </span>
+    <br /><br />
+    <span class="h4">Student Corner:</span><br />
+    [<a href="?submit.php?1">Submit Sec1</a>]<br />
+    [<a href="?grades.php?1">Grades Sec1</a>]<br /><br />
+    [<a href="?LecList.php" title="Class Lecture Notes">Lecture Notes</a>]<br />
+    [<a href="https://www.yioop.com/group/324/"
+        title="Discussion board for issues related to this class"
+        >Discussion Board</a>]<br /><br />
+    <span class="h4">Course Info:</span><br />
+    [<a href="?classpage.php#texts" >Texts &amp; Links</a>]<br />
+    [<a href="?classpage.php#description" >Description</a>]<br />
+    [<a href="?classpage.php#outcomes">Course Outcomes</a>]<br />
+    [<a href="?outcomes.php" >Outcomes Matrix</a>]<br />
+    [<a href="?classpage.php#schedule">Course Schedule</a>]<br />
+    [<a href="?classpage.php#grading" >Grading</a>]<br />
+    [<a href="?classpage.php#requirements">Requirements/HW/Quizzes</a>]<br />
+    [<a href="?classpage.php#classroom">Class Protocols</a>]<br />
+    [<a href="?classpage.php#exams" >Exam Info</a>]<br />
+    [<a href="?classpage.php#regrades" >Regrades</a>]<br />
+    [<a href="?classpage.php#policies" >University Policies</a>]<br />
+    [<a href="?announcements.php">Announcements</a>]<br /><br />
+    <span class="h4">HW Assignments:</span><br />
+    [<a href="?Hw1.php" >Hw1</a>]
+    [<a href="?Hw2.php" >Hw2</a>]
+    [<a href="?Hw3.php" >Hw3</a>]<br />
+    [<a href="?Hw4.php" >Hw4</a>]
+    [<a href="?Hw5.php" >Hw5</a>]
+    [<a href="?Quizzes.php" >Quizzes</a>]
+    <br /><br />
+    <span class="h4">Practice Exams:</span><br />
+    [<a href="?PracMid1.php" >Midterm</a>]
+    [<a href="?PracFinal.php" >Final</a>]
+    </p>
+    </td>
+    <td style="width:75%;vertical-align:top;" >
+<script src="../js/mathjax/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<h1>HW#5 --- last modified November 27 2020 10:07:48.</h1>
+
+<p><a href="?Hw5Soln.php#top">Solution set</a>.</p>
+<p><span class="underline" >Due date:</span> Dec 7</p>
+<p><span class="underline" >Files to be submitted:</span><br />&#160;&#160;Hw5.zip<br /></p>
+
+<p> <span class="underline" >
+Purpose:</span> Experiment with web security exploits and their mitigations.</p>
+<p>
+<span class="underline" >
+Related Course Outcomes:</span>
+</p>
+<p>
+The main course outcomes covered by this assignment are:
+</p>
+
+<p>CLO3 -- Write server-side scripts that process HTML forms.</p>
+
+<p>CLO4 -- Write client-side scripts that validate HTML forms.</p>
+
+<p><span class="underline" >Description:</span> </p>
+<p>For this homework, I want you to implement three of the web site attacks given on the November 23 lecture. Put these in the files attack_1.php, attack_2.php, attack_3.php. For each attack, I then want you to modify the site you create showing the attack, to make another site which prevents the attack. Put these modified sites in the files: fix_1.php, fix_2.php, and fix_3.php. For each of site pair, I want you to have an explanation file which says what attack you were trying to demonstrate, how to see the file to observe the attack, and how your prevention site prevents the attack. Store these explanations in the files: explanation_1.txt, explanation_2.txt, explanation_3.txt. At least one of your attacks should involve a database attack.</p>
+
+<table style="width:60%; border:1px solid black">
+<caption style="text-align:left"><span class="underline" >Point Breakdown</span></caption>
+
+<tr style='border:1px solid black'>
+<td style='border:1px solid black'>Files attack_1.php, attack_2.php, attack_3.php have exploits as described.</td><td style='border:1px solid black'>3pts</td>
+</tr>
+<tr style='border:1px solid black'>
+<td style='border:1px solid black'>Files fix_1.php, fix_2.php, fix_3.php are the same as their corresponding attack file but fix the exploit.</td><td style='border:1px solid black'>3pts</td>
+</tr>
+<tr style='border:1px solid black'>
+<td style='border:1px solid black'>Files explanation_1.php, explanation_2.php, explanation_3.php clearly provide the information asked in the HW description.</td><td style='border:1px solid black'>3pts</td>
+</tr>
+<tr style='border:1px solid black'>
+<td style='border:1px solid black'>At least one of your attacks should involve a database attack.</td><td style='border:1px solid black'>1pt</td>
+</tr>
+<tr style='border:1px solid black'>
+<td style='border:1px solid black'>Total</td><td style='border:1px solid black'>10pts</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

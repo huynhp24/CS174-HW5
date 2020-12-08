@@ -3,6 +3,8 @@ let app = express();
 let bodyParser = require('body-parser');
 var path = require('path');
 
+const frameguard = require('frameguard')
+app.use(frameguard({ action: 'DENY' }))
 
 app.use(bodyParser.urlencoded({
   extended: true
