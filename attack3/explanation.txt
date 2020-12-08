@@ -1,0 +1,25 @@
+This is the click-jacking attack (and prevention)
+
+
+I downloaded the html webpage for HW5 so that I could host it myself, as I cannot change the settings of the class site to prevent the iframe use (to get points for preventing it).
+
+So, first, I put that in the iframe so that the user thinks they're at the class website.
+
+Then, I put an invisible iframe in front that links to yahoo (no one wants to go to yahoo over google, so that's the evil plan).
+
+If you click anywhere on that hw page, you get redirected.
+
+
+
+
+
+Prevention:
+
+In the prevention server, I am basically leaning into the idea that I host the hw page (rather than that I host the iframe tomfoolery). This is just so I don't have 2 servers, hacker and website.
+
+
+So, I install the npm package frameguard. I use it to essentially modify the "X-Frame-Options" to be "DENY". Here is the code snippet:
+
+		const frameguard = require('frameguard')
+		app.use(frameguard({ action: 'DENY' }))
+
