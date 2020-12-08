@@ -1,22 +1,44 @@
-This attack is the target="_blank" Attack.
+This attack is the SQL Injection Attack. It involves a mySQL database.
 
-While this might be best demonstrated with a link to another location,
-I wanted to do a file upload so that a second server isn't necessary.
-So, this website is a hosting site, and allows you to preview your html page.
-So, when you upload your page and go to its location on the server, that page
-can use the [target="_blank" Attack].
+
+This is a dude database entry-maker. You put in your name and the coolness algorithm will determine the coolness and write the name and coolness to the dudes table of a database.
 
 in attack/ is the vulnerable node server
 in parry/ is the node server that won't allow opener reference
 
-NOTE: This only worked in google chrome due to my security settings in firefox...
+NOTE: mySQL database setup - Either change the connection credentials in index.js or set your server up this way
+			   - Also, create a dudes table with VARCHAR(50) 'name' and int 'coolness'
 
 For seeing it in action:
 
+NORMAL USE OF SITE
 0. Install dependencies and packages with "npm install"
 1. Start Server with "node index.js"
-2. Click "Choose File" and upload the lone html page located at attack1/h4cker-z0n3/hackWithBlank.html to the server
-3. Click on the link that appears to the preview of your html (attack) page
-4. Click the button to attack the window.opener
-5. If it is the vulnerable server, the original tab will change to a fake sign-out page
-6. If you enter credentials and submit, it will send it to a location provided by the hacker page.
+2. Put a/your name into the field and submit it
+	- It will submit you into the dudes table
+	- Entries will be made like this:
+
+	insert into dudes (name, coolness) values('Enrique',8)
+
+	insert into dudes (name, coolness) values('Danny',3)
+
+	insert into dudes (name, coolness) values('Frederick',5)
+
+3. You will be redirected to the table in the database, where you see your new entry and the coolness number
+
+ATTACK!!!!!!
+1. Put in this entry, with the evil idea of putting me in at level 10 coolness: copy from Huynh to Hogarth
+         Huynh',10),('Hogarth
+2. See after the redirection how the entry slips into the next one, giving Huynh level 10 coolness and subjecting Hogarth to the coolness algorithm.
+
+
+
+
+
+PREVENTION:
+
+This implements a slash escape of all the special characters like " and '
+
+It is a built in functionality of the query function of the mysql connector package from npm.
+
+You can see how the quotes within the name submission uses \ to neutralize the attack's quotations.

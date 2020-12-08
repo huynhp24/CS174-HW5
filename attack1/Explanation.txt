@@ -20,3 +20,13 @@ For seeing it in action:
 4. Click the button to attack the window.opener
 5. If it is the vulnerable server, the original tab will change to a fake sign-out page
 6. If you enter credentials and submit, it will send it to a location provided by the hacker page.
+
+
+
+
+
+PREVENTION:
+
+The parry folder has the same server, but it has the protection within the <a> object that is created:
+
+The Link now has rel=\"noopener noreferrer\" to protect against the window.opener referral

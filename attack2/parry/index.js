@@ -31,7 +31,7 @@ function insertDude(req, res){
   var namie = req.body.name;
   console.log("name is " + namie)
   var coolness = Math.floor(Math.random() * 10);
-  con.query("insert into dudes (name, coolness) values('"+namie+"','"+coolness+"') ", function(err, results, fields) {
+  con.query("insert into dudes (name, coolness) values(?,?) ", [namie,coolness], function(err, results, fields) {
     if (err) throw err;
     console.log(results); 
     res.redirect('/showAll');
